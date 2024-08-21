@@ -39,4 +39,5 @@ sources/0 = SubResource("TileSetAtlasSource_uyugo")
 tile_set = SubResource("TileSet_bn1sv")
 format = 2
 script = ExtResource("1_20yh8")
-board_size_y = 25
+board_size_y = 43
+board_size_x = 21
