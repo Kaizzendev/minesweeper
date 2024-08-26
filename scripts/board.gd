@@ -40,12 +40,12 @@ func _input(event):
 	
 	if !(event is InputEventSingleScreenTap || event is InputEventSingleScreenLongPress):
 		return
-	print(event)
 
 	if event is InputEventSingleScreenTap:
 		on_tile_pressed(pressed_tile_coords)
 	if event is InputEventSingleScreenLongPress:
 		on_tile_hold(pressed_tile_coords)
+		
 	print(pressed_tile_coords)
 func load_board_configuration(screen_size: Vector2i):
 	
@@ -70,7 +70,8 @@ func generate_board(board_size_x : int, board_size_y : int):
 	for y in board_size_y:
 		for x in board_size_x:
 			set_cell(TILE_SET_LAYER,Vector2i(x,y),TILE_SET_ID,CELLS.DEFAULT)
-			
+	
+	generate_mines()
 func generate_mines():
 	for i in number_of_mines:
 		var mine_tile_coords = Vector2(randi_range(0,board_size_x),randi_range(0,board_size_y))
@@ -79,13 +80,15 @@ func generate_mines():
 			mine_tile_coords = Vector2(randi_range(0,board_size_x),randi_range(0,board_size_y))
 			
 		tiles_with_mines.append(mine_tile_coords)
+		print(tiles_with_mines)
 		
 	for tile in tiles_with_mines:
 		erase_cell(TILE_SET_LAYER,tile)
 		set_cell(TILE_SET_LAYER,tile,TILE_SET_ID,CELLS.DEFAULT,1)
 
 func on_tile_pressed(coords : Vector2i):
-	print("Pulsar")
+	if tiles_with_mines.any(func(tile): return tile.x == coords.x && tile.y == coords.y):
+		print("Mine!!!!")
 	
 func on_tile_hold(coords : Vector2i):
 	print("Mantener")
