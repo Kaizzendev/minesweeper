@@ -15,6 +15,10 @@ run/main_scene="res://scenes/board.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InputManager="*res://plugins/GDTIM-4.x-v2_1_2/InputManager.gd"
+
 [display]
 
 window/size/viewport_width=1080

@@ -25,7 +25,9 @@ const CELLS = {
 	"DEFAULT" : Vector2i(2,2)
 }
 
-
+var tiles_with_mines = []
+var touch_position = Vector2()
+var hold_duration = 5  # en segundos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = DisplayServer.window_get_size()
@@ -33,10 +35,18 @@ func _ready():
 	generate_board(board_size_x,board_size_y)
 	print(screen_size)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _input(event):
+	var pressed_tile_coords = local_to_map(get_local_mouse_position())
+	
+	if !(event is InputEventSingleScreenTap || event is InputEventSingleScreenLongPress):
+		return
+	print(event)
 
+	if event is InputEventSingleScreenTap:
+		on_tile_pressed(pressed_tile_coords)
+	if event is InputEventSingleScreenLongPress:
+		on_tile_hold(pressed_tile_coords)
+	print(pressed_tile_coords)
 func load_board_configuration(screen_size: Vector2i):
 	
 	var max_scale_factor_y: float = float(screen_size.y) / float(screen_size.x)
@@ -60,3 +70,22 @@ func generate_board(board_size_x : int, board_size_y : int):
 	for y in board_size_y:
 		for x in board_size_x:
 			set_cell(TILE_SET_LAYER,Vector2i(x,y),TILE_SET_ID,CELLS.DEFAULT)
+			
+func generate_mines():
+	for i in number_of_mines:
+		var mine_tile_coords = Vector2(randi_range(0,board_size_x),randi_range(0,board_size_y))
+		
+		while tiles_with_mines.has(mine_tile_coords):
+			mine_tile_coords = Vector2(randi_range(0,board_size_x),randi_range(0,board_size_y))
+			
+		tiles_with_mines.append(mine_tile_coords)
+		
+	for tile in tiles_with_mines:
+		erase_cell(TILE_SET_LAYER,tile)
+		set_cell(TILE_SET_LAYER,tile,TILE_SET_ID,CELLS.DEFAULT,1)
+
+func on_tile_pressed(coords : Vector2i):
+	print("Pulsar")
+	
+func on_tile_hold(coords : Vector2i):
+	print("Mantener")
