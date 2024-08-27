@@ -4,10 +4,16 @@ extends TileMap
 @export var board_size_x : int = 10
 @export var number_of_mines : int = 40
 
+signal flag_change(number_of_flags)
+signal game_lost
+signal game_won 
+
 const TILE_SET_ID : int = 0
 const TILE_SET_LAYER : int = 0
 const ORIGINAL_TILE_SIZE : int = 16
 var screen_size : Vector2i 
+
+var is_game_finished : bool = false
 
 const CELLS = {
 	"1" : Vector2i(0,0),
@@ -46,6 +52,7 @@ func _input(event):
 		on_tile_hold(pressed_tile_coords)
 		
 	print(pressed_tile_coords)
+	
 func load_board_configuration(screen_size: Vector2i):
 	
 	var max_scale_factor_y: float = float(screen_size.y) / float(screen_size.x)
@@ -88,7 +95,7 @@ func generate_mines():
 
 func on_tile_pressed(coords : Vector2i):
 	if tiles_with_mines.any(func(tile): return tile.x == coords.x && tile.y == coords.y):
-		print("Mine!!!!")
+		loose(coords)
 		
 	cells_checked_recursively.append(coords)
 	
@@ -152,3 +159,17 @@ func get_surrounding_cells_to_check(current_cell: Vector2i) -> Array:
 			surrounding_cells.append(target_cell)
 	
 	return surrounding_cells
+
+func loose(coords: Vector2i):
+	var sw : bool = true
+	game_lost.emit()
+	is_game_finished = true
+	for tile : Vector2i in tiles_with_mines:
+		await get_tree().create_timer(0.01).timeout
+		if(sw):
+			set_tile_cell(coords,"RED_MINE")
+			sw = false
+		if !(tile == coords):
+			set_tile_cell(tile, "MINE")
+		
+	
