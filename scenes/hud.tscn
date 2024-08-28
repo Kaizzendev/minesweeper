@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://bacyh00cspexs"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_h10r6"]
+[ext_resource type="Texture2D" uid="uid://7p3wnw7tv8tk" path="res://assets/button_smile.png" id="2_1xwv2"]
+[ext_resource type="FontFile" uid="uid://vpd1areby8k5" path="res://assets/DS-DIGIB.TTF" id="2_vpioq"]
+[ext_resource type="Texture2D" uid="uid://vvlyek38b78b" path="res://assets/button_smile_pressed.png" id="3_q6am8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isyiv"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klulb"]
+bg_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufe0u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01g6x"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_h10r6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotchPanel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_isyiv")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_klulb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 400
+
+[node name="TimerPanel" type="Panel" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 90)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ufe0u")
+
+[node name="TimerCountLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/TimerPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vpioq")
+theme_override_font_sizes/font_size = 25
+text = "00:01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameStateButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("2_1xwv2")
+texture_pressed = ExtResource("3_q6am8")
+stretch_mode = 0
+
+[node name="MinePanel" type="Panel" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 90)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_01g6x")
+
+[node name="MineCountLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/MinePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vpioq")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/GameStateButton" to="." method="_on_game_state_button_pressed"]

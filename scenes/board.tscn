@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ey0erfit5qr"]
+[gd_scene load_steps=7 format=3 uid="uid://d4ey0erfit5qr"]
 
 [ext_resource type="Script" path="res://scripts/board.gd" id="1_20yh8"]
 [ext_resource type="Texture2D" uid="uid://b5tiiv04gou1g" path="res://assets/atlas.png" id="1_kbota"]
+[ext_resource type="PackedScene" uid="uid://cq08medr8k0fi" path="res://scenes/Game_manager.tscn" id="3_lj1rp"]
+[ext_resource type="PackedScene" uid="uid://bacyh00cspexs" path="res://scenes/hud.tscn" id="4_4fscp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyugo"]
 texture = ExtResource("1_kbota")
@@ -45,3 +47,11 @@ tile_set = SubResource("TileSet_bn1sv")
 format = 2
 script = ExtResource("1_20yh8")
 board_size_y = 22
+number_of_mines = 15
+
+[node name="HUD" parent="." instance=ExtResource("4_4fscp")]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("board", "hud") instance=ExtResource("3_lj1rp")]
+position = Vector2(-51, 36)
+board = NodePath("..")
+hud = NodePath("../HUD")

@@ -1,8 +1,11 @@
 extends TileMap
 
+class_name Board
+
 @export var board_size_y : int = 10
 @export var board_size_x : int = 10
 @export var number_of_mines : int = 2
+@onready var hud = $HUD
 
 signal flag_change(number_of_flags)
 signal game_lost
@@ -36,8 +39,14 @@ var cells_checked_recursively = []
 var tiles_with_flags = []
 
 func _ready():
-	screen_size = DisplayServer.window_get_size()
-	load_board_configuration(screen_size)
+	var safe_area = DisplayServer.get_display_safe_area().size
+	var screen_size = DisplayServer.window_get_size()
+	hud.notch_panel.custom_minimum_size = Vector2(safe_area.x, screen_size.y - safe_area.y)
+	print("Tamaño panel: ",hud.panel_container.size.y)
+	print("Tamaño notch: ", hud.notch_panel.custom_minimum_size.y)
+	print("Tamaño de Y: ",screen_size.y - (hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y))
+	position.y = hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y
+	load_board_configuration(Vector2i(screen_size.x,screen_size.y - (hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y)))
 	generate_board(board_size_x,board_size_y)
 	print(screen_size)
 
@@ -55,7 +64,6 @@ func _input(event):
 	print(pressed_tile_coords)
 	
 func load_board_configuration(screen_size: Vector2i):
-	
 	var max_scale_factor_y: float = float(screen_size.y) / float(screen_size.x)
 	var max_scale_factor_x: float = float(screen_size.x) / float(screen_size.y)
 	
@@ -75,7 +83,8 @@ func load_board_configuration(screen_size: Vector2i):
 	var scale_factor_y : float = tile_per_screen_y / 16
 	
 	scale = Vector2(scale_factor_x,scale_factor_y)
-	
+	print("Tamaño tablero x: ", board_size_x)
+	print("Tamaño tablero y: ", board_size_y)
 func generate_board(board_size_x : int, board_size_y : int):
 	for y in board_size_y:
 		for x in board_size_x:
