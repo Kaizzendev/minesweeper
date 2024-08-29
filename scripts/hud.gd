@@ -18,7 +18,7 @@ func _ready():
 	var safe_area = DisplayServer.get_display_safe_area().size
 	var screen_size = DisplayServer.window_get_size()
 	notch_panel.custom_minimum_size = Vector2(safe_area.x, screen_size.y - safe_area.y)
-
+	notch_panel.size.x = safe_area.x
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

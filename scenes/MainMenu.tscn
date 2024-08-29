@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://j5r3e7e0trg2"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_o7ggg"]
+[ext_resource type="Theme" uid="uid://ds0v7jv413dka" path="res://themes/MainTheme.tres" id="2_q8fv2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7ggg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_q8fv2")
+
+[node name="GameTitleLabel" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "MineSweeper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuVBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="PlayButton" type="Button" parent="PanelContainer/MenuVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_q8fv2")
+text = "Play
+"
+
+[node name="OptionsButton" type="Button" parent="PanelContainer/MenuVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_q8fv2")
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/MenuVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Exit
+"
+
+[node name="GameModeVBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ClassicGameModeButton" type="Button" parent="PanelContainer/GameModeVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Classic
+"
+
+[node name="BackToMenuButton" type="Button" parent="PanelContainer/GameModeVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Back"
+
+[node name="DifficultyVBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="EasyButton" type="Button" parent="PanelContainer/DifficultyVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Easy
+"
+
+[node name="NormalButton" type="Button" parent="PanelContainer/DifficultyVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Normal"
+
+[node name="HardButton" type="Button" parent="PanelContainer/DifficultyVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+text = "Hard
+"
+
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/MenuVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuVBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuVBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/GameModeVBoxContainer/ClassicGameModeButton" to="." method="_on_classic_game_mode_button_pressed"]
+[connection signal="pressed" from="PanelContainer/GameModeVBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/DifficultyVBoxContainer/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="PanelContainer/DifficultyVBoxContainer/NormalButton" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="PanelContainer/DifficultyVBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]

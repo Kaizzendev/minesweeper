@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ds0v7jv413dka"]
+
+[ext_resource type="FontFile" uid="uid://vpd1areby8k5" path="res://assets/DS-DIGIB.TTF" id="1_cn1pj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egvw5"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqgt2"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uica"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnmv1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_cn1pj")
+Button/styles/hover = SubResource("StyleBoxFlat_egvw5")
+Button/styles/normal = SubResource("StyleBoxFlat_qqgt2")
+Button/styles/pressed = SubResource("StyleBoxFlat_6uica")
+Label/fonts/font = ExtResource("1_cn1pj")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_cnmv1")

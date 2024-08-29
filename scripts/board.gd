@@ -4,7 +4,7 @@ class_name Board
 
 @export var board_size_y : int = 10
 @export var board_size_x : int = 10
-@export var number_of_mines : int = 2
+var number_of_mines : int = GameOptionsManager.number_of_mines
 @onready var hud = $HUD
 
 signal flag_change(number_of_flags)
@@ -41,14 +41,12 @@ var tiles_with_flags = []
 func _ready():
 	var safe_area = DisplayServer.get_display_safe_area().size
 	var screen_size = DisplayServer.window_get_size()
+	
 	hud.notch_panel.custom_minimum_size = Vector2(safe_area.x, screen_size.y - safe_area.y)
-	print("Tamaño panel: ",hud.panel_container.size.y)
-	print("Tamaño notch: ", hud.notch_panel.custom_minimum_size.y)
-	print("Tamaño de Y: ",screen_size.y - (hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y))
 	position.y = hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y
+	
 	load_board_configuration(Vector2i(screen_size.x,screen_size.y - (hud.panel_container.size.y + hud.notch_panel.custom_minimum_size.y)))
 	generate_board(board_size_x,board_size_y)
-	print(screen_size)
 
 func _input(event):
 	var pressed_tile_coords = local_to_map(get_local_mouse_position())
@@ -210,6 +208,7 @@ func place_flag(coords: Vector2i):
 			return
 		set_tile_cell(coords, "FLAG")
 		tiles_with_flags.append(coords)
+		Input.vibrate_handheld(200)
 		number_of_flags += 1
 		
 	flag_change.emit(number_of_flags)

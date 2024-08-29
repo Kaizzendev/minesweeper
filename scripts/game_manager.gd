@@ -4,6 +4,8 @@ extends Node
 @export var board : Board
 @export var hud : HUD
 
+
+
 func _ready():
 	board.game_lost.connect(_on_game_loose)
 	board.game_won.connect(_on_game_won)
