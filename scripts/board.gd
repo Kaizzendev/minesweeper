@@ -2,8 +2,8 @@ extends TileMap
 
 class_name Board
 
-@export var board_size_y : int = 10
-@export var board_size_x : int = 10
+var board_size_y : int = GameOptionsManager.board_size_y
+var board_size_x : int = GameOptionsManager.board_size_x
 var number_of_mines : int = GameOptionsManager.number_of_mines
 @onready var hud = $HUD
 
@@ -111,7 +111,6 @@ func on_tile_pressed(coords : Vector2i):
 		return
 	if cells_checked_recursively.any(func(tile): return tile.x == coords.x && tile.y == coords.y):
 		return
-	
 	if tiles_with_mines.any(func(tile): return tile.x == coords.x && tile.y == coords.y):
 		loose(coords)
 		
@@ -160,7 +159,7 @@ func get_surrounding_cells_mine_count(cell_coord: Vector2i) -> int:
 	
 	for cell in sourrounding_cells:
 		var tile_data = get_cell_tile_data(TILE_SET_LAYER,cell)
-		if tile_data and tile_data.get_custom_data("has_mine"):
+		if tile_data and tile_data.get_custom_data("has_mine") || get_cell_atlas_coords(TILE_SET_LAYER,cell) == CELLS.FLAG:
 			mine_count += 1
 			
 	return mine_count
