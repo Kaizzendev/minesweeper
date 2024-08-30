@@ -141,7 +141,7 @@ func handle_tile_data(cell_coord: Vector2i, should_stop_after_mine: bool = false
 	
 	if mine_count == 0:
 		set_tile_cell(cell_coord, "EMPTY")
-		var surrounding_cells = get_surrounding_cells(cell_coord)
+		var surrounding_cells = get_surrounding_cells_to_check(cell_coord)
 		for cell in surrounding_cells:
 			handle_surrounding_cell(cell)
 	else:
