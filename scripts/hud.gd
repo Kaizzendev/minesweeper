@@ -46,3 +46,6 @@ func _on_mine_swap_button_pressed():
 		mine_swap_button.texture_normal = BUTTON_FLAG
 	elif mine_swap_button.texture_normal == BUTTON_FLAG:
 		mine_swap_button.texture_normal = BUTTON_MINE
+
+func _on_exit_button_pressed():
+	pass
