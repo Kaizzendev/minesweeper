@@ -6,15 +6,7 @@ var number_of_mines : int
 var board_size_x: int 
 var board_size_y: int
 var is_mine_swap : bool = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 func change_difficulty(difficluty: String):
 	match  difficluty:
 		"Easy":
