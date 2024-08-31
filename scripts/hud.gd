@@ -4,9 +4,9 @@ class_name HUD
 
 @onready var notch_panel = $VBoxContainer/NotchPanel
 
-@onready var mine_count_label = $VBoxContainer/PanelContainer/HBoxContainer/MinePanel/MineCountLabel
-@onready var timer_count_label = $VBoxContainer/PanelContainer/HBoxContainer/TimerPanel/TimerCountLabel
-@onready var game_state_button = $VBoxContainer/PanelContainer/HBoxContainer/GameStateButton
+@onready var mine_count_label = $VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/MinePanel/MineCountLabel
+@onready var timer_count_label = $VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/TimerPanel/TimerCountLabel
+@onready var game_state_button = $VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/GameStateButton
 
 @onready var panel_container = $VBoxContainer/PanelContainer
 
