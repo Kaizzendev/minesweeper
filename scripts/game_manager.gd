@@ -21,6 +21,5 @@ func _on_flag_change(number_of_flags: int):
 func _on_game_loose():
 	hud.game_lost()
 	
-	
 func _on_game_won():
 	hud.game_won()

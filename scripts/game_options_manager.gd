@@ -5,6 +5,7 @@ const difficulty_size = {"Easy": Vector2i(8,13), "Normal": Vector2i(13,24), "Har
 var number_of_mines : int
 var board_size_x: int 
 var board_size_y: int
+var is_mine_swap : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

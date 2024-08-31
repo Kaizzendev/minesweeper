@@ -39,3 +39,7 @@ func game_lost():
 	
 func game_won():
 	game_state_button.texture_normal = BUTTON_CLEARED
+
+
+func _on_mine_swap_button_pressed():
+	GameOptionsManager.is_mine_swap = !GameOptionsManager.is_mine_swap

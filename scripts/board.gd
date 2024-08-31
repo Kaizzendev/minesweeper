@@ -55,9 +55,15 @@ func _input(event):
 		return
 
 	if event is InputEventSingleScreenTap:
-		on_tile_pressed(pressed_tile_coords)
+		if !GameOptionsManager.is_mine_swap:
+			on_tile_pressed(pressed_tile_coords)
+		else:
+			on_tile_hold(pressed_tile_coords)
 	if event is InputEventSingleScreenLongPress:
-		on_tile_hold(pressed_tile_coords)
+		if !GameOptionsManager.is_mine_swap:
+			on_tile_hold(pressed_tile_coords)
+		else:
+			on_tile_pressed(pressed_tile_coords)
 		
 	print(pressed_tile_coords)
 	

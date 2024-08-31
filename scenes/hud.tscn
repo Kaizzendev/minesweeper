@@ -98,7 +98,7 @@ texture_normal = ExtResource("2_1xwv2")
 texture_pressed = ExtResource("3_q6am8")
 stretch_mode = 0
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+[node name="MineSwapButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
@@ -132,3 +132,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/GameStateButton" to="." method="_on_game_state_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/MineSwapButton" to="." method="_on_mine_swap_button_pressed"]
