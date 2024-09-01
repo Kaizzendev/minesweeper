@@ -3,6 +3,7 @@ extends Node
 
 @export var board : Board
 @export var hud : HUD
+@export var win_screen : WinScreen
 
 func _ready():
 	board.game_lost.connect(_on_game_loose)
@@ -21,3 +22,4 @@ func _on_game_loose():
 	
 func _on_game_won():
 	hud.game_won()
+	win_screen.game_won()

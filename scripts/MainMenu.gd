@@ -1,9 +1,9 @@
 extends Control
 
-@onready var menu_v_box_container = $PanelContainer/MenuVBoxContainer
-@onready var game_mode_v_box_container = $PanelContainer/GameModeVBoxContainer
-@onready var difficulty_v_box_container = $PanelContainer/DifficultyVBoxContainer
-@onready var options_v_box_container = $PanelContainer/OptionsVBoxContainer
+@onready var menu_v_box_container = $PanelContainer/VBoxContainer/MenuVBoxContainer
+@onready var game_mode_v_box_container = $PanelContainer/VBoxContainer/GameModeVBoxContainer
+@onready var difficulty_v_box_container = $PanelContainer/VBoxContainer/DifficultyVBoxContainer
+@onready var options_v_box_container = $PanelContainer/VBoxContainer/OptionsVBoxContainer
 
 
 func _ready():
@@ -28,6 +28,10 @@ func _on_exit_button_pressed():
 func _on_classic_game_mode_button_pressed():
 	difficulty_v_box_container.show()
 	game_mode_v_box_container.hide()
+	
+func _on_back_to_menu_button_pressed():
+	menu_v_box_container.show()
+	game_mode_v_box_container.hide()
 
 # Difficulty Actions
 func _on_easy_button_pressed():
@@ -43,6 +47,7 @@ func _on_hard_button_pressed():
 	GameOptionsManager.change_difficulty("Hard")
 	get_tree().change_scene_to_file("res://scenes/board.tscn")
 
-func _on_back_to_menu_button_pressed():
-	menu_v_box_container.show()
-	game_mode_v_box_container.hide()
+
+func _on_back_to_game_mode_button_pressed():
+	difficulty_v_box_container.hide()
+	game_mode_v_box_container.show()

@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkdf07mq6yynr"]
+
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_eo0s2"]
+[ext_resource type="Theme" uid="uid://ds0v7jv413dka" path="res://themes/MainTheme.tres" id="1_mwg6d"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_eo0s2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_mwg6d")
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 34
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="WinLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 68
+text = "You won!!"
+
+[node name="CurrentTimeLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Your time was: "
+
+[node name="PersonalBestLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Personal best: "
+
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 40
+
+[node name="BackButton" type="Button" parent="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 48
+text = "Play again"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 12
+
+[connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
