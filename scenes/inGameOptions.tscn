@@ -1,40 +1,67 @@
-[gd_scene format=3 uid="uid://dac4wdpauojkq"]
+[gd_scene load_steps=4 format=3 uid="uid://dac4wdpauojkq"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://scripts/in_game_options.gd" id="1_er03j"]
+[ext_resource type="Theme" uid="uid://ds0v7jv413dka" path="res://themes/MainTheme.tres" id="2_eldu7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko127"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_er03j")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_eldu7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ko127")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
 
-[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Resume
+"
 
-[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/Panel"]
+[node name="VibrationHBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-offset_right = 1080.0
-offset_bottom = 1920.0
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Panel"]
+[node name="VibrationLabel" type="Label" parent="PanelContainer/VBoxContainer/VibrationHBoxContainer"]
 layout_mode = 2
-offset_top = 948.0
-offset_right = 1080.0
-offset_bottom = 971.0
+theme_override_font_sizes/font_size = 40
+text = "Vibration"
 
-[node name="Label2" type="Label" parent="PanelContainer"]
+[node name="VibrationCheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/VibrationHBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 10
 
-[node name="CheckBox2" type="CheckBox" parent="PanelContainer"]
+[node name="SoundHBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SoundLabel" type="Label" parent="PanelContainer/VBoxContainer/SoundHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Sound"
+
+[node name="SoundCheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/SoundHBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit menu"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

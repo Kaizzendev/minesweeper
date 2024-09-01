@@ -227,10 +227,8 @@ func place_flag(coords: Vector2i):
 	
 	if count == tiles_with_mines.size():
 		win_game()
-		
+	
 func win_game():
 	is_game_finished = true
 	game_won.emit()
-	
-	
 	
