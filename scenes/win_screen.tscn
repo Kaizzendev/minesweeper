@@ -33,11 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 61
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 40
+theme_override_constants/separation = 42
 
 [node name="WinLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -50,6 +46,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 57
 text = "Your time was: "
+
+[node name="NewRecordLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 57
+text = "New Record!!"
 
 [node name="PersonalBestLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
