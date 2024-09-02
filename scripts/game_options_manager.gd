@@ -7,6 +7,9 @@ var board_size_x: int
 var board_size_y: int
 var is_mine_swap : bool = false
 
+var can_vibrate: bool = true
+var can_play_sound : bool = true
+
 func change_difficulty(difficluty: String):
 	match  difficluty:
 		"Easy":
@@ -21,3 +24,9 @@ func change_difficulty(difficluty: String):
 			number_of_mines = difficulty_mines.Hard
 			board_size_x = difficulty_size.Hard.x
 			board_size_y = difficulty_size.Hard.y
+			
+func swap_vibration():
+	can_vibrate = !can_vibrate
+	
+func swap_sound():
+	can_play_sound = !can_play_sound

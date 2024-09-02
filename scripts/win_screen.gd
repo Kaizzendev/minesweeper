@@ -38,11 +38,11 @@ func game_won():
 		DataManager.data = {time_record = hud.total_time_seconds} 
 		DataManager.save_data(DataManager.data)
 	else:
-		fill_personal_label(current_record)
+		fill_personal_record_label(current_record)
 	current_time_label.text = "Your time was: " + hud.timer_count_label.text
 	show()
 	
-func fill_personal_label(total_time_seconds):
+func fill_personal_record_label(total_time_seconds):
 	var minutes = int(total_time_seconds / 60)
 	var seconds = total_time_seconds - minutes * 60
 	personal_best_label.text = "Personal best: " + "%02d:%02d" % [minutes,seconds]
