@@ -18,6 +18,10 @@ grow_vertical = 2
 theme = ExtResource("2_eldu7")
 theme_override_styles/panel = SubResource("StyleBoxFlat_ko127")
 
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_eldu7")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -28,6 +32,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 100
 text = "Resume
 "
 
@@ -37,7 +42,7 @@ size_flags_vertical = 4
 
 [node name="VibrationLabel" type="Label" parent="PanelContainer/VBoxContainer/VibrationHBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 80
 text = "Vibration"
 
 [node name="VibrationCheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/VibrationHBoxContainer"]
@@ -51,7 +56,7 @@ size_flags_vertical = 4
 [node name="SoundLabel" type="Label" parent="PanelContainer/VBoxContainer/SoundHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 80
 text = "Sound"
 
 [node name="SoundCheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/SoundHBoxContainer"]
@@ -61,6 +66,7 @@ size_flags_horizontal = 10
 
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 90
 text = "Exit menu"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

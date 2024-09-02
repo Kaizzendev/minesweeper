@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkdf07mq6yynr"]
+[gd_scene load_steps=3 format=3 uid="uid://bg4ttd5116p4c"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_eo0s2"]
 [ext_resource type="Theme" uid="uid://ds0v7jv413dka" path="res://themes/MainTheme.tres" id="1_mwg6d"]
@@ -7,7 +7,7 @@
 script = ExtResource("1_eo0s2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(600, 600)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,28 +33,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 34
+theme_override_constants/separation = 61
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 40
 
 [node name="WinLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 68
+theme_override_font_sizes/font_size = 132
 text = "You won!!"
 
 [node name="CurrentTimeLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 57
 text = "Your time was: "
 
 [node name="PersonalBestLabel" type="Label" parent="PanelContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 57
 text = "Personal best: "
 
 [node name="ButtonsHBoxContainer" type="HBoxContainer" parent="PanelContainer/Panel/VBoxContainer"]
@@ -66,13 +66,15 @@ theme_override_constants/separation = 40
 [node name="BackButton" type="Button" parent="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("1_mwg6d")
+theme_override_font_sizes/font_size = 65
 text = "Back"
 
 [node name="PlayAgainButton" type="Button" parent="PanelContainer/Panel/VBoxContainer/ButtonsHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("1_mwg6d")
+theme_override_font_sizes/font_size = 65
 text = "Play again"
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/Panel/VBoxContainer"]

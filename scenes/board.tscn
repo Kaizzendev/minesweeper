@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dac4wdpauojkq" path="res://scenes/inGameOptions.tscn" id="3_jc5n5"]
 [ext_resource type="PackedScene" uid="uid://cq08medr8k0fi" path="res://scenes/Game_manager.tscn" id="3_lj1rp"]
 [ext_resource type="PackedScene" uid="uid://bacyh00cspexs" path="res://scenes/hud.tscn" id="4_4fscp"]
-[ext_resource type="PackedScene" uid="uid://bkdf07mq6yynr" path="res://scenes/win_screen.tscn" id="6_amvaj"]
+[ext_resource type="PackedScene" uid="uid://bg4ttd5116p4c" path="res://scenes/win_screen.tscn" id="6_amvaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyugo"]
 texture = ExtResource("1_kbota")

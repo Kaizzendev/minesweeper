@@ -21,6 +21,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_q8fv2")
 
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_q8fv2")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -36,7 +40,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("2_q8fv2")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 150
 text = "MineSweeper"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -45,26 +49,30 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_constants/separation = 60
+theme_override_constants/separation = 90
 
 [node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer/MenuVBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Play
 "
 
 [node name="OptionsButton" type="Button" parent="PanelContainer/VBoxContainer/MenuVBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Options"
 
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer/MenuVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Exit
 "
 
@@ -78,12 +86,16 @@ theme_override_constants/separation = 60
 [node name="ClassicGameModeButton" type="Button" parent="PanelContainer/VBoxContainer/GameModeVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Classic
 "
 
 [node name="BackToMenuButton" type="Button" parent="PanelContainer/VBoxContainer/GameModeVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Back"
 
 [node name="DifficultyVBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
@@ -96,22 +108,30 @@ theme_override_constants/separation = 100
 [node name="EasyButton" type="Button" parent="PanelContainer/VBoxContainer/DifficultyVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Easy
 "
 
 [node name="NormalButton" type="Button" parent="PanelContainer/VBoxContainer/DifficultyVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Normal"
 
 [node name="HardButton" type="Button" parent="PanelContainer/VBoxContainer/DifficultyVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q8fv2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Hard
 "
 
 [node name="BackToGameModeButton" type="Button" parent="PanelContainer/VBoxContainer/DifficultyVBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 110
 text = "Back"
 
 [node name="OptionsVBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
