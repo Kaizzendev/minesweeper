@@ -5,6 +5,18 @@ extends CanvasLayer
 @onready var sound_check_button = $PanelContainer/VBoxContainer/SoundHBoxContainer/SoundCheckButton
 const BUTTON_GREEN_TICK = preload("res://assets/button_green_tick.png")
 const BUTTON_RED_CROSS = preload("res://assets/button_red_cross.png")
+
+func _ready():
+	if GameOptionsManager.can_vibrate:
+		vibration_check_box.texture_normal = BUTTON_GREEN_TICK
+	elif !GameOptionsManager.can_vibrate:
+		vibration_check_box.texture_normal = BUTTON_RED_CROSS
+		
+	if GameOptionsManager.can_play_sound:
+		sound_check_button.texture_normal = BUTTON_GREEN_TICK
+	elif !GameOptionsManager.can_play_sound:
+		sound_check_button.texture_normal = BUTTON_RED_CROSS
+
 func _on_exit_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
@@ -16,14 +28,18 @@ func _on_resume_button_pressed():
 func _on_vibration_check_box_pressed():
 	if vibration_check_box.texture_normal == BUTTON_GREEN_TICK:
 		vibration_check_box.texture_normal = BUTTON_RED_CROSS
+		GameOptionsManager.can_vibrate = false
 	elif vibration_check_box.texture_normal == BUTTON_RED_CROSS:
 		vibration_check_box.texture_normal = BUTTON_GREEN_TICK
-	GameOptionsManager.swap_vibration()
+		GameOptionsManager.can_vibrate = true
+	
 
 
 func _on_sound_check_button_pressed():
 	if sound_check_button.texture_normal == BUTTON_GREEN_TICK:
 		sound_check_button.texture_normal = BUTTON_RED_CROSS
+		GameOptionsManager.can_play_sound = false
 	elif sound_check_button.texture_normal == BUTTON_RED_CROSS:
 		sound_check_button.texture_normal = BUTTON_GREEN_TICK
-	GameOptionsManager.swap_sound()
+		GameOptionsManager.can_play_sound = true
+	
