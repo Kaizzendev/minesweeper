@@ -13,6 +13,12 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klulb"]
 bg_color = Color(0.752941, 0.752941, 0.752941, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.105882, 0.105882, 0.105882, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufe0u"]
 bg_color = Color(0, 0, 0, 1)
