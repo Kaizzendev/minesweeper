@@ -1,11 +1,14 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var place_flag_audio_stream_player = $PlaceFlagAudioStreamPlayer
+@onready var explosion_audio_stream_player = $ExplosionAudioStreamPlayer
+@onready var win_game_audio_stream_player = $WinGameAudioStreamPlayer
+	
+func play_flag_sound():
+	place_flag_audio_stream_player.play()
+	
+func play_explosion_sound():
+	explosion_audio_stream_player.play()
+	
+func play_win_game_sound():
+	win_game_audio_stream_player.play()

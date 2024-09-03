@@ -21,7 +21,7 @@ config/bg_color=Color(0, 0, 0, 1)
 InputManager="*res://plugins/GDTIM-4.x-v2_1_2/InputManager.gd"
 GameOptionsManager="*res://scripts/game_options_manager.gd"
 DataManager="*res://scripts/data_manager.gd"
-AudioManager="*res://scripts/audio_manager.gd"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [display]
 

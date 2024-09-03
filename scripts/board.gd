@@ -195,6 +195,8 @@ func loose(coords: Vector2i):
 			set_tile_cell(tile, "MINE")
 	if GameOptionsManager.can_vibrate:
 		Input.vibrate_handheld()
+	if GameOptionsManager.can_play_sound:
+		AudioManager.play_explosion_sound()
 	game_lost.emit()
 
 func place_flag(coords: Vector2i):
@@ -216,6 +218,8 @@ func place_flag(coords: Vector2i):
 		tiles_with_flags.append(coords)
 		if GameOptionsManager.can_vibrate:
 			Input.vibrate_handheld(200)
+		if GameOptionsManager.can_play_sound:
+			AudioManager.play_flag_sound()
 		number_of_flags += 1
 		
 	flag_change.emit(number_of_flags)
@@ -231,6 +235,8 @@ func place_flag(coords: Vector2i):
 		win_game()
 	
 func win_game():
+	if GameOptionsManager.can_play_sound:
+		AudioManager.play_win_game_sound()
 	is_game_finished = true
 	game_won.emit()
 	

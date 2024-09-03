@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpwabvws8f63u"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_2j6gr"]
+[ext_resource type="AudioStream" uid="uid://c213y6mxpss1r" path="res://assets/Blip.wav" id="2_8artt"]
+[ext_resource type="AudioStream" uid="uid://bcat6xyw2ruqs" path="res://assets/Explosion.wav" id="3_6pbbw"]
+[ext_resource type="AudioStream" uid="uid://dsu8e5ly42f18" path="res://assets/Win.wav" id="4_jj24h"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_2j6gr")
+
+[node name="PlaceFlagAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8artt")
+
+[node name="ExplosionAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6pbbw")
+
+[node name="WinGameAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jj24h")
