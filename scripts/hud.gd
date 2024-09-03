@@ -22,7 +22,6 @@ var total_time_seconds : int = 0
 
 @onready var in_game_options = $"../InGameOptions"
 
-
 func _ready():
 	var safe_area = DisplayServer.get_display_safe_area().size
 	var screen_size = DisplayServer.window_get_size()
@@ -66,5 +65,9 @@ func _on_timer_timeout():
 	
 
 func _on_in_game_options_button_pressed():
-	timer.stop()
-	in_game_options.show()
+	if in_game_options.visible:
+		timer.start()
+		in_game_options.hide()
+	else:
+		timer.stop()
+		in_game_options.show()
