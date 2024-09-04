@@ -12,12 +12,9 @@ config_version=5
 
 config/name="Mine Sweeper"
 config/version="1 "
-run/main_scene="res://scenes/MainMenu.tscn"
+run/main_scene="res://scenes/splash_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-boot_splash/bg_color=Color(0.0980392, 0.137255, 0.14902, 1)
-boot_splash/image="res://kaizen_dev_logo.png"
-boot_splash/fullsize=false
-boot_splash/use_filter=false
+boot_splash/show_image=false
 config/bg_color=Color(0, 0, 0, 1)
 
 [autoload]

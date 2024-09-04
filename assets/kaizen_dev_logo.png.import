@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c18lfnesgqw76"
-path="res://.godot/imported/kaizen_dev_logo.png-4fb5243fe2d4f234ee41137cf6a60810.ctex"
+path="res://.godot/imported/kaizen_dev_logo.png-549503774ac54833a306b42a1aa27d44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kaizen_dev_logo.png"
-dest_files=["res://.godot/imported/kaizen_dev_logo.png-4fb5243fe2d4f234ee41137cf6a60810.ctex"]
+source_file="res://assets/kaizen_dev_logo.png"
+dest_files=["res://.godot/imported/kaizen_dev_logo.png-549503774ac54833a306b42a1aa27d44.ctex"]
 
 [params]
 
