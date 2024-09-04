@@ -14,7 +14,7 @@ config/name="Mine Sweeper"
 config/version="1 "
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://icon.png"
 config/bg_color=Color(0, 0, 0, 1)
 
 [autoload]
