@@ -33,7 +33,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 110
 text = "Resume
 "
 
@@ -73,7 +73,7 @@ texture_normal = ExtResource("3_2fv4u")
 
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 110
 text = "Exit menu"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

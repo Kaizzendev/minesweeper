@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://j5r3e7e0trg2"]
+[gd_scene load_steps=4 format=3 uid="uid://j5r3e7e0trg2"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_o7ggg"]
 [ext_resource type="Theme" uid="uid://ds0v7jv413dka" path="res://themes/MainTheme.tres" id="2_q8fv2"]
+[ext_resource type="Texture2D" uid="uid://21e6msxnj3p3" path="res://assets/button_green_tick.png" id="3_lqi6b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -145,6 +146,46 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_constants/separation = 100
+
+[node name="VibrationHBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VibrationLabel" type="Label" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer/VibrationHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Vibration"
+
+[node name="VibrationCheckBox" type="TextureButton" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer/VibrationHBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_q8fv2")
+texture_normal = ExtResource("3_lqi6b")
+
+[node name="SoundHBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SoundLabel" type="Label" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer/SoundHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 80
+text = "Sound"
+
+[node name="SoundCheckButton" type="TextureButton" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer/SoundHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("3_lqi6b")
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/OptionsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 110
+text = "back"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MenuVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MenuVBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
@@ -155,3 +196,6 @@ size_flags_vertical = 6
 [connection signal="pressed" from="PanelContainer/VBoxContainer/DifficultyVBoxContainer/NormalButton" to="." method="_on_normal_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/DifficultyVBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/DifficultyVBoxContainer/BackToGameModeButton" to="." method="_on_back_to_game_mode_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/OptionsVBoxContainer/VibrationHBoxContainer/VibrationCheckBox" to="." method="_on_vibration_check_box_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/OptionsVBoxContainer/SoundHBoxContainer/SoundCheckButton" to="." method="_on_sound_check_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/OptionsVBoxContainer/Button" to="." method="_on_button_pressed"]
