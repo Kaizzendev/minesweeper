@@ -4,9 +4,11 @@ extends Control
 @onready var game_mode_v_box_container = $PanelContainer/VBoxContainer/GameModeVBoxContainer
 @onready var difficulty_v_box_container = $PanelContainer/VBoxContainer/DifficultyVBoxContainer
 @onready var options_v_box_container = $PanelContainer/VBoxContainer/OptionsVBoxContainer
+@onready var version_num_label = $PanelContainer/Panel/VersionNumLabel
 
 
 func _ready():
+	version_num_label.text = str("Version: " , VersionManager.get_version_number())
 	game_mode_v_box_container.hide()
 	difficulty_v_box_container.hide()
 	options_v_box_container.hide()
