@@ -4,9 +4,12 @@ extends Control
 @onready var game_mode_v_box_container = $PanelContainer/VBoxContainer/GameModeVBoxContainer
 @onready var difficulty_v_box_container = $PanelContainer/VBoxContainer/DifficultyVBoxContainer
 @onready var options_v_box_container = $PanelContainer/VBoxContainer/OptionsVBoxContainer
-@onready var version_num_label = $PanelContainer/Panel/MarginContainer/VersionNumLabel
+@onready var version_num_label = $PanelContainer/Panel/VersionNumMarginContainer/VersionNumLabel
 @onready var vibration_check_box = $PanelContainer/VBoxContainer/OptionsVBoxContainer/VibrationHBoxContainer/VibrationCheckBox
 @onready var sound_check_button = $PanelContainer/VBoxContainer/OptionsVBoxContainer/SoundHBoxContainer/SoundCheckButton
+@onready var about_me_button = $PanelContainer/Panel/AboutMeMarginContainer/AboutMeButton
+@onready var about_me_label = $PanelContainer/VBoxContainer/AboutMeLabel
+@onready var about_me_margin_container = $PanelContainer/VBoxContainer/AboutMeMarginContainer
 
 const BUTTON_GREEN_TICK = preload("res://assets/button_green_tick.png")
 const BUTTON_RED_CROSS = preload("res://assets/button_red_cross.png")
@@ -31,11 +34,13 @@ func _ready():
 func _on_play_button_pressed():
 	menu_v_box_container.hide()
 	game_mode_v_box_container.show()
+	about_me_button.hide()
 
 
 func _on_options_button_pressed():
 	menu_v_box_container.hide()
 	options_v_box_container.show()
+	about_me_button.hide()
 
 
 func _on_exit_button_pressed():
@@ -49,6 +54,7 @@ func _on_classic_game_mode_button_pressed():
 func _on_back_to_menu_button_pressed():
 	menu_v_box_container.show()
 	game_mode_v_box_container.hide()
+	about_me_button.show()
 
 # Difficulty Actions
 func _on_easy_button_pressed():
@@ -93,3 +99,18 @@ func _on_sound_check_button_pressed():
 func _on_button_pressed():
 	menu_v_box_container.show()
 	options_v_box_container.hide()
+	about_me_button.show()
+
+
+func _on_about_me_button_pressed():
+	menu_v_box_container.hide()
+	about_me_button.hide()
+	about_me_label.show()
+	about_me_margin_container.show()
+
+
+func _on_about_me_back_button_pressed():
+	menu_v_box_container.show()
+	about_me_button.show()
+	about_me_label.hide()
+	about_me_margin_container.hide()
