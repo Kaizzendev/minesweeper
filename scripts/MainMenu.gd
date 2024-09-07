@@ -15,7 +15,7 @@ const BUTTON_GREEN_TICK = preload("res://assets/button_green_tick.png")
 const BUTTON_RED_CROSS = preload("res://assets/button_red_cross.png")
 
 func _ready():
-	version_num_label.text = str("Version: " , VersionManager.get_version_number())
+	version_num_label.text = "Version: 1.0.0"
 	game_mode_v_box_container.hide()
 	difficulty_v_box_container.hide()
 	options_v_box_container.hide()
